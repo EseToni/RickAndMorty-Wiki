@@ -1,0 +1,92 @@
+/* CharacterCard.css */
+.card {
+    width: 100%;
+    max-width: 250px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.335);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s;
+    margin: 4px auto;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.img {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    color: #ffffff;
+    border-radius: 20px;
+}
+.status-dead {
+    background-color: rgba(169, 3, 3, 0.778);
+    /* Otros estilos de diseño si es necesario */
+}
+
+.status-unknown {
+    background-color: rgba(53, 53, 53, 0.709);
+    /* Otros estilos de diseño si es necesario */
+}
+
+.status-alive {
+    background-color: rgba(3, 191, 3, 0.827);
+    /* Otros estilos de diseño si es necesario */
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #7b7b7b; /* Color inicial del ícono */
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s; /* Transiciones para color y escala */
+}
+
+.favorite-icon.favorite {
+    color: #ff0000; /* Cambio de color al hacer clic */
+    transform: scale(1.2); /* Escala al hacer clic */
+}
+
+.name {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 0 0 10px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    transition: background-color 0.3s;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.name:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

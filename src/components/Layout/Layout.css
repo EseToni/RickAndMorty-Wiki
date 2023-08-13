@@ -1,0 +1,18 @@
+.navBar {
+    background-color: rgb(82, 80, 80);
+}
+
+.blanco{
+    background-color: rgba(245, 245, 245, 0.806);
+}
+
+.verdeOscuro {
+    background-color: rgba(120, 173, 15, 0.76);
+}
+
+.negro {
+   background-color: rgb(82, 80, 80)
+}
+.negroText {
+    color: rgb(39 39 42);
+}
