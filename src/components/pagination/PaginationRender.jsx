@@ -17,9 +17,8 @@ const PaginationRender = () => {
   const setPages = useSelector((state) => state.reducer.pages) || 1
   const lastPathLocation = useSelector((state) => state.secondReducer.lastPathsLocation)
   const lastPage = lastPathLocation[lastPathLocation.length -2]
-  const page = parseInt(setPages, 10)
   const info = {
-    pages: page, // Número total de páginas
+    pages: setPages, // Número total de páginas
     // ... otros datos de paginación
   };
   const customStyles = {

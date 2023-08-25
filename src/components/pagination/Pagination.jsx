@@ -17,7 +17,6 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
-
   const pageChange = (data) => {
     const newPageNumber = data.selected + 1;
     updatePageNumber(newPageNumber);

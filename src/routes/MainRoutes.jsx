@@ -20,7 +20,7 @@ export default function MainRoutes() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/characters" element={<MapCard />} />
+          <Route index path="/characters" element={<MapCard />} />
           <Route path="/favorites" element={<MapFavorite/>}/>
           <Route path="/characters/:id" element={<CardDetail/>}/>
         </Route>
