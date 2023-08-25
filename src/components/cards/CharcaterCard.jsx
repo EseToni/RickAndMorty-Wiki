@@ -1,37 +1,53 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './CharacterCard.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFavorite } from '../../redux/actions';
+import { Link } from 'react-router-dom';
 
-const CharacterCard = ({name, species, status, id, type, image, location, gender}) => {
-    const [isFavorite, setIsFavorite] = useState(false);
-    
+const CharacterCard = ({ name, species, status, id, type, image, location, gender, favorite }) => {
+    const [isFavorite, setIsFavorite] = useState(favorite);
+    const dispatch = useDispatch()
     const handleFavoriteClick = () => {
         setIsFavorite(!isFavorite);
+        isFavorite ? dispatch(setFavorite(id, "QUIT"))
+            : dispatch(setFavorite(id, "PUT"))
     };
+    const favoriteChars = useSelector((state) => state.reducer.favoriteChars)
 
     let statusColorClass = "";
-    if (status === "Dead"){
+    if (status === "Dead") {
         statusColorClass = "status-dead"
-    }else if (status === "unknown"){
+    } else if (status === "unknown") {
         statusColorClass = "status-unknown"
-    }else if (status === "Alive"){
+    } else if (status === "Alive") {
         statusColorClass = "status-alive"
     }
+    useEffect(() => {
+        favoriteChars.includes(id) ? setIsFavorite(true) : setIsFavorite(false)
+    }, [])
+
     return (
         <div className="card">
             <div className="img">
-                <img src={image} alt={name + id + " NOT FOUND"} />
-                <span className={`status ${statusColorClass}`}>{status}</span>
-                <i className={`favorite-icon ${isFavorite ? 'favorite' : ''}`} onClick={handleFavoriteClick}>
+                <Link to={`/characters/${id}`}>
+                    <img src={image} alt={name + id + " NOT FOUND"} />
+                    <span className={`status ${statusColorClass}`}>{status}</span>
+                </Link>
+                <span className={`favorite-icon ${isFavorite ? 'favorite' : ''}`} onClick={handleFavoriteClick}>
                     <FontAwesomeIcon icon={faHeart} />
-                </i>
-                <h2 className="name">{name}</h2>
+                </span>
+                <Link to={`/characters/${id}`}>
+                    <h2 className="name">{name}</h2>
+                </Link>
             </div>
-            <p className="info">Specie: {species}{type?`, ${type}` : ""} </p>
-            <p className="info">Gender: {gender}</p>
-            <p className="info">Last location: {location}</p>
+            <Link to={`/characters/${id}`}>
+                <p className="info"><strong>Specie:</strong> <i>{species}{type ? `, ${type}` : ""}</i> </p>
+                <p className="info"><strong>Gender:</strong> <i>{gender}</i></p>
+                <p className="info"><strong>Last location:</strong> <i>{location}</i></p>
+            </Link>
         </div>
     );
 }

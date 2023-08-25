@@ -1,9 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "./reducer";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import rootReducer from "./reducers/reducer";
 import ThunkMiddleware from "redux-thunk";
+import reducerNavigation from "./reducers/reducerNavigation";
+
+const rootReducerCombined = combineReducers({
+    reducer: rootReducer,
+    secondReducer: reducerNavigation, // Cambia el nombre de asignación
+});
 
 const store = configureStore({
-    reducer: rootReducer,
+    reducer: rootReducerCombined,
     middleware: [ThunkMiddleware],
 });
 

@@ -1,0 +1,26 @@
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+
+}
+
+.page-item {
+  padding: 4px 10px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: rgba(228, 228, 228, 0.84);
+}
+
+
+.page-item.active {
+  background-color: rgb(39 39 42);
+  color: white;
+  transform: scale(1.1); 
+  box-shadow: 0 0 8px rgba(0, 255, 60, 0.5);
+}

@@ -6,13 +6,32 @@
     background-color: rgba(245, 245, 245, 0.806);
 }
 
-.verdeOscuro {
-    background-color: rgba(120, 173, 15, 0.76);
-}
-
 .negro {
    background-color: rgb(82, 80, 80)
 }
 .negroText {
     color: rgb(39 39 42);
+    box-shadow: 0px 4px 10px 5px rgba(39, 39, 42, 0.033);
+}
+
+.scrollWrap {
+    display: fixed;
+    overflow: scroll;
+    max-height: 72vh;
+    max-width: 100vh;
+    scroll-margin-block: 0;
+    box-shadow: 
+                 inset 0px -30px 20px -20px rgba(93, 93, 93, 0.278);
+    
+}
+::-webkit-scrollbar {
+    display: none;
+  }
+
+.borderClr {
+    border-width: 2px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    
 }

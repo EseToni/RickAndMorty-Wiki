@@ -1,23 +1,31 @@
 import { Route, Routes } from "react-router-dom";
 import Login from "../components/login";
-import NavBar from "../components/navBar";
-import Prueba from "../components/Prueba";
-import SimpleContainer from "../components/container";
-import React from 'react'
 import Layout from "../components/Layout/Layout";
-import HorizontalScroll from "../components/miniComponents/HorizontalScroll";
+import MapCard from "../components/cards/mapCard";
+import MapFavorite from "../components/favorites/MapFavorite";
+import CardDetail from "../components/cards/CardDetail";
+import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { lastPath } from "../redux/actionNavigation";
+
 export default function MainRoutes() {
+  const location = useLocation()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(lastPath(location.pathname))
+  },[location.pathname])
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/Prueba" element={<Prueba />} />
-          <Route path="/try" element={<HorizontalScroll/>}/>
+          <Route path="/characters" element={<MapCard />} />
+          <Route path="/favorites" element={<MapFavorite/>}/>
+          <Route path="/characters/:id" element={<CardDetail/>}/>
         </Route>
         <Route path="/Login" element={<Login />} />
       </Routes>
     </>
-
-
   )
 }

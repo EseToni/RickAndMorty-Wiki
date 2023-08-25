@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../../redux/actions';
+import Filter from '../filter/filter';
 
 export default function SearchBar() {
     const dispatch = useDispatch();
@@ -10,7 +11,7 @@ export default function SearchBar() {
         const searchTerm = event.target.value;
         dispatch(setSearchTerm(searchTerm))
     };
-
+    
     return (
         <form>
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
@@ -23,17 +24,14 @@ export default function SearchBar() {
                 <input
                     type="search"
                     id="default-search"
-                    className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 shadow"
+                    className="block p-4 pl-10 w-8/12 text-sm  lg:w-4/5 md:w-4/5  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 shadow"
                     placeholder="Rick, Morty, Smith..."
                     onChange={handleSearchChange}
                     required
                 />
-                <button
-                    type="submit"
-                    className="text-white absolute right-2.5 bottom-2.5 bg-zinc-700 hover:bg-zinc-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-zinc-700 dark:hover:bg-zinc-700 dark:focus:ring-zinc-800"
-                >
-                    Search
-                </button>
+                <div className='absolute right-0 top-0 z-10 lg:right-10' >
+                    <Filter/>
+                </div>
             </div>
         </form>
     );
