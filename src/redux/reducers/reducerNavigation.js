@@ -1,5 +1,10 @@
 const navigationState = {
-    lastPathsLocation:""
+    lastPathsLocation:"",
+    loginState:{
+        email:"",
+        password:"",
+    },
+    accessState: false,
 }
 
 const reducerNavigation = (state = navigationState, {type , payload}) => {
@@ -8,6 +13,24 @@ const reducerNavigation = (state = navigationState, {type , payload}) => {
             return{
                 ...state,
                 lastPathsLocation: [...state.lastPathsLocation, payload]
+            }
+        }
+        case "SET_EMAIL" :{
+            return {
+                ...state,
+                loginState:{...state.loginState, email:payload}
+            }  
+        }
+        case "SET_PASSWORD" :{
+            return {
+                ...state,
+                loginState:{...state.loginState, password:payload}
+            }
+        }
+        case "SET_ACCESS_LOGIN" : {
+            return {
+                ...state,
+                accessState: !state.accessState
             }
         }
         default:

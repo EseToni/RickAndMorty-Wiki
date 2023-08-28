@@ -24,7 +24,7 @@ export default function SearchBar() {
                 <input
                     type="search"
                     id="default-search"
-                    className="block p-4 pl-10 w-8/12 text-sm  lg:w-4/5 md:w-4/5  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 shadow"
+                    className="block p-4 pl-10 w-8/12 text-sm  lg:w-4/5 md:w-4/5  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-zinc-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500 shadow"
                     placeholder="Rick, Morty, Smith..."
                     onChange={handleSearchChange}
                     required

@@ -35,3 +35,8 @@ export const USER_NAVIGATION = [
   { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
 ]
+
+export const LOGIN_EXAMPLES = {
+  email: "emailEjemplo@gmail.com",
+  password: "passwordEjemplo123"
+}

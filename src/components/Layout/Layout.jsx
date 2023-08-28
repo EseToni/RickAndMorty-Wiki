@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import SearchBar from '../miniComponents/SearchBar'
 import "./Layout.css"
-import logo from "../../img/logo.png"
+import logo from "../../../public/img/logo.png"
 import PaginationRender from '../pagination/PaginationRender'
 import { Link } from 'react-router-dom'
 import { ELEMENTS_NAVIGATION } from '../../constans/constans'
